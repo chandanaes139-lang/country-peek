@@ -1,12 +1,13 @@
-
-import {
+ import {
   BrowserRouter,
   Routes,
   Route,
 } from 'react-router-dom'
 
 import Header from './components/Header'
+
 import Home from './pages/Home'
+import CountryPage from './pages/CountryPage'
 import NotFound from './pages/NotFound'
 
 import './styles/App.css'
@@ -18,19 +19,31 @@ function App() {
 
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-
+          {/* Home Page */}
           <Route
-            path="/country/:name"
-            element={<div>Country Detail Page</div>}
+            path="/"
+            element={<Home />}
           />
 
+          {/* Country Detail Page */}
+          <Route
+            path="/country/:code"
+            element={<CountryPage />}
+          />
+
+          {/* Favourites Page */}
           <Route
             path="/favourites"
-            element={<div>Favourites Page</div>}
+            element={
+              <div>Favourites Page</div>
+            }
           />
 
-          <Route path="*" element={<NotFound />} />
+          {/* 404 Page */}
+          <Route
+            path="*"
+            element={<NotFound />}
+          />
         </Routes>
       </main>
     </BrowserRouter>
