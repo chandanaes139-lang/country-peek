@@ -9,12 +9,14 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import CountryPage from './pages/CountryPage'
 import NotFound from './pages/NotFound'
+import Favourites from './pages/Favourites'
 
 import './styles/App.css'
+const base = '/country-peek/'
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={base}>
       <Header />
 
       <main>
@@ -45,8 +47,13 @@ function App() {
             element={<NotFound />}
           />
         </Routes>
+        <Route
+  path="/favourites"
+  element={<Favourites />}
+/>
       </main>
     </BrowserRouter>
+ 
   )
 }
 
